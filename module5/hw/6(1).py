@@ -22,23 +22,23 @@ import re
 
 
 def is_spam_words(text, spam_words, space_around=False):
-    count = 0
-    if not space_around:
-        for i in spam_words:
-            if text.find(i) != -1:
-                count += 1
-        if count:
-            return True
-        else:
-            return False
-    else:
-        for i in spam_words:
-            if text.find(i) != -1:
-                count += 1
-        if count:
-            return True
-        else:
-            return False
+    pass
+
+text = 'Egor "flamie" Vasyliev left NAVI team after 10 years playing for them'
+spam_words = ['maie', 'lef', 'them']
+count = 0
+coincidence = False
+for i in spam_words:
+    if i in text:
+        count += 1
+
+if count:
+    coincidence = True
+else:
+    coincidence = False
+
+print(count, coincidence, end=' ')
+
 
 
 
