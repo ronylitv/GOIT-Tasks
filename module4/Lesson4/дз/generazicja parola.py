@@ -31,7 +31,7 @@ def get_password():
         password = get_random_password()
         if is_valid_password(password):
             return password
-            break
+
         else:
             continue
 

@@ -9,10 +9,6 @@ def sanitize_phone_number(phone):
     return phone
 
 
-a = sanitize_phone_number('+380(68)2450080')
-print(a)
-
-
 def get_phone_numbers_for_countries(list_phones):
     phone_dict = {'JP': [],
                   'SG': [],
@@ -20,7 +16,6 @@ def get_phone_numbers_for_countries(list_phones):
                   'UA': []}
     for i in list_phones:
         sanitized_number = sanitize_phone_number(i)
-        print(sanitized_number)
         if sanitized_number.startswith('380'):
             phone_dict['UA'].append(sanitized_number)
         elif sanitized_number.startswith('81'):
@@ -34,5 +29,6 @@ def get_phone_numbers_for_countries(list_phones):
 
 print(get_phone_numbers_for_countries(['+380(682)450080', '+380964046372']))
 
-# def is_check_name(fullname, first_name):
-#     return True if fullname.startswith(first_name) else False
+
+def is_check_name(fullname, first_name):
+    return True if fullname.startswith(first_name) else False
