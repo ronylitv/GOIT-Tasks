@@ -1,15 +1,19 @@
 def get_recipe(path, search_id):
-    with open(path, 'r') as fh:
-
-        while True:
-            line = fh.readline()
-            if search_id in line:
-                list_of_recipe = line.split(',')
-
-            if not line:
+    with open(path, "r") as fh:
+        lines = fh.readlines()
+        for i in lines:
+            if search_id in i:
+                recipe_food = i.split(',')
+                result = {
+                    'id': recipe_food[0],
+                    'name': recipe_food[1],
+                    'ingredients': [i.strip() for i in recipe_food[2:]]
+                }
                 break
-    return list_of_recipe
+            else:
+                result = None
 
-print(get_recipe('recipe.txt', '60b90c4613067a15887e1ae5'))
+    return result
 
 
+print(get_recipe('recipe.txt', '60b90c3b13067a15887e1ae4'))

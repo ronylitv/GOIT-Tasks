@@ -28,18 +28,25 @@
 # print(sent)
 
 
+# def get_cats_info(path):
+#     cats_info = []
+#     with open(path, 'r') as fh:
+#         lines = fh.readlines()
+#         for i in lines:
+#             id_data, name_data, age_data = i.split(',')
+#             cats = dict(id='', name='', age='')
+#             cats['id'] = id_data
+#             cats['name'] = name_data
+#             cats['age'] = age_data.strip()
+#             cats_info.append(cats)
+#
+#     return cats_info
+
 def get_cats_info(path):
-    cats_info = []
-    with open(path, 'r') as fh:
-        lines = fh.readlines()
-        for i in lines:
-            id_data, name_data, age_data = i.split(',')
-            cats = dict(id='', name='', age='')
-            cats['id'] = id_data
-            cats['name'] = name_data
-            cats['age'] = age_data.strip()
-            cats_info.append(cats)
-
-    return cats_info
-
+    result = []
+    with open(path, "r") as f:
+        for string in f:
+            id, name, age = string.split(",")
+            result.append({"id": id, "name": name, "age": age.strip()})
+    return result
 print(get_cats_info('cats.txt'))
