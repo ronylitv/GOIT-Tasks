@@ -25,6 +25,6 @@ key = '1'
 
 for i in aaa:
     for j in i:
-        if key in j:
+        if key == j:
             b.append(j)
 print(b)

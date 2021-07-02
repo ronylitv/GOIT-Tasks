@@ -26,7 +26,7 @@ spam_words = ['amie', 'eft', 'them']
 
 
 def is_spam_words(text, spam_words, space_around=False):
-    coincidence = False
+
     count = 0
     if not space_around:
         for i in spam_words:
@@ -47,4 +47,3 @@ def is_spam_words(text, spam_words, space_around=False):
             coincidence = False
     return coincidence
 
-print()
