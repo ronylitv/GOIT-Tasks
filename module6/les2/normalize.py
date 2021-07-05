@@ -14,14 +14,15 @@ for key, value in zip(CYRILLIC_SYMBOLS, LAT_TRANS):
 def normalize(string) -> str:
     translated_string = string.translate(TRANS)
     translated_string = re.sub(r'\W', '_', translated_string)
+#     for i in translated_string:
+#         if i not in TRANS.values() and not i.isdigit():
+#             new_str += '_'
+#         else:
+#             new_str += i
+    
+#     return new_str
     return translated_string
 
 
- # for i in translated_string:
-    #     if i not in TRANS.values() and not i.isdigit():
-    #         new_str += '_'
-    #     else:
-    #         new_str += i
-    #
-    # return new_str
+ 
 
