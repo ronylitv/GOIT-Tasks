@@ -51,7 +51,8 @@ REGIST_EXT = {
 
 }
 
-p = Path('C:/Users\Lenovo\Desktop\Folder_for_script/fold')
+sorting_folder = sys.argv[1]
+p = Path(sorting_folder)
 
 
 
