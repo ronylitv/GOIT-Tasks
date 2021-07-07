@@ -34,7 +34,7 @@ TAR_ARCH = []
 FOLDERS = []
 EXTENSIONS = set()
 OTHER = []
-REGIST_EXT = {
+REGISTERED_EXT = {
 
     'JPEG': JPEG_IMAGES,
     'JPG': JPG_IMAGES,
@@ -51,19 +51,21 @@ REGIST_EXT = {
 
 }
 
-sorting_folder = sys.argv[1]
-p = Path(sorting_folder)
+folder_for_script = 'C:/Users\Lenovo\Desktop\Folder_for_script/fold'
+
+try:
+    sorting_folder = sys.argv[1]
+    p = Path(sorting_folder)
+except:
+    pass
+p = Path(folder_for_script)
 
 
-
-def folder_del(folder:Path):
+def folder_del(folder: Path):
     try:
         shutil.rmtree(folder)
     except:
         pass
-
-
-
 
 
 def parse_folder(path):
@@ -78,12 +80,12 @@ def parse_folder(path):
         else:
             ext = file.suffix[1:].upper()
             EXTENSIONS.add(ext)
-            if ext in REGIST_EXT.keys():
-                REGIST_EXT[ext].append(file)
+            if ext in REGISTERED_EXT.keys():
+                REGISTERED_EXT[ext].append(file)
             else:
-                REGIST_EXT['OTHER'].append(file)
+                REGISTERED_EXT['OTHER'].append(file)
 
-    return REGIST_EXT
+    return REGISTERED_EXT
 
 
 parse_folder(p)
@@ -167,9 +169,3 @@ for file in OTHER:
 
 for file in FOLDERS:
     folder_del(file)
-
-
-print(OTHER)
-print(FOLDERS)
-for ind, val in REGIST_EXT.items():
-    print(f'{ind}:{val}')
