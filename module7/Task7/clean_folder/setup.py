@@ -9,5 +9,5 @@ setup(name='useful',
       author_email='rostislavlitvinets@gmail.com',
       packages=find_namespace_packages(),
       install_requires=['click', 'pathlib'],
-      entry_points={'console_scripts': ['clean = clean.clean:executing_script']}
+      entry_points={'console_scripts': ['clean_folder = clean_folder.clean:executing_script']}
       )

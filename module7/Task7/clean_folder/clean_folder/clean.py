@@ -51,10 +51,8 @@ REGISTERED_EXT = {
 
 }
 
+
 # folder_for_script = 'C:/Users\Lenovo\Desktop\Folder_for_script/fold'
-
-
-
 
 
 def folder_del(folder: Path):
@@ -82,9 +80,6 @@ def parse_folder(path):
                 REGISTERED_EXT['OTHER'].append(file)
 
     return REGISTERED_EXT
-
-
-
 
 
 def handle_image(file: Path, root_folder: Path, dist: str):
@@ -128,6 +123,7 @@ def handle_other(file: Path, root_folder: Path, dist: str):
     ext = Path(file).suffix
     new_name = normalize(file.name.replace(ext, '')) + ext
     file.replace(target_folder / new_name)
+
 
 def main(folder):
     parse_folder(folder)
