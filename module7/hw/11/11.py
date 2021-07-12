@@ -9,9 +9,19 @@ TRANSLATE_DICT = {
     '8': ['T', 'U', 'V'],
     '9': ['W', 'X', 'Y', 'Z'],
     '0': [' ']
-
 }
+
+text = 'Hello World!'
 
 
 def sequence_buttons(string):
-    pass
+    number_message = ''
+    for i in string:
+        for ind, val in TRANSLATE_DICT.items():
+            if i.upper() in val:
+                start_index = val.index(i.upper()) + 1
+                number_message += start_index * ind
+    return number_message
+
+
+print(sequence_buttons(text))
