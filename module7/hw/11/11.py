@@ -11,5 +11,7 @@ TRANSLATE_DICT = {
     '0': [' ']
 
 }
+
+
 def sequence_buttons(string):
     pass
