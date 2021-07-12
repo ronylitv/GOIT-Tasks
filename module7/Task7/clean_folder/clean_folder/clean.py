@@ -53,12 +53,8 @@ REGISTERED_EXT = {
 
 # folder_for_script = 'C:/Users\Lenovo\Desktop\Folder_for_script/fold'
 
-try:
-    sorting_folder = sys.argv[1]
-    p = Path(sorting_folder)
-except:
-    pass
-# p = Path(folder_for_script)
+
+
 
 
 def folder_del(folder: Path):
@@ -88,7 +84,7 @@ def parse_folder(path):
     return REGISTERED_EXT
 
 
-parse_folder(p)
+
 
 
 def handle_image(file: Path, root_folder: Path, dist: str):
@@ -133,39 +129,49 @@ def handle_other(file: Path, root_folder: Path, dist: str):
     new_name = normalize(file.name.replace(ext, '')) + ext
     file.replace(target_folder / new_name)
 
+def main(folder):
+    parse_folder(folder)
+    for file in JPEG_IMAGES:
+        handle_image(file, folder, 'IMAGES')
 
-for file in JPEG_IMAGES:
-    handle_image(file, p, 'IMAGES')
+    for file in PNG_IMAGES:
+        handle_image(file, folder, 'IMAGES')
 
-for file in PNG_IMAGES:
-    handle_image(file, p, 'IMAGES')
+    for file in TAR_ARCH:
+        handle_arch(file, folder, 'ARCH')
 
-for file in TAR_ARCH:
-    handle_arch(file, p, 'ARCH')
+    for file in JPG_IMAGES:
+        handle_image(file, folder, 'IMAGES')
 
-for file in JPG_IMAGES:
-    handle_image(file, p, 'IMAGES')
+    for file in DOCX_DOC:
+        handle_doc(file, folder, 'DOCS')
 
-for file in DOCX_DOC:
-    handle_doc(file, p, 'DOCS')
+    for file in DOC_DOC:
+        handle_doc(file, folder, 'DOCS')
 
-for file in DOC_DOC:
-    handle_doc(file, p, 'DOCS')
+    for file in PPTX_DOC:
+        handle_doc(file, folder, 'DOCS')
 
-for file in PPTX_DOC:
-    handle_doc(file, p, 'DOCS')
+    for file in XLSX_DOC:
+        handle_doc(file, folder, 'DOCS')
 
-for file in XLSX_DOC:
-    handle_doc(file, p, 'DOCS')
+    for file in PDF_DOC:
+        handle_doc(file, folder, 'DOCS')
 
-for file in PDF_DOC:
-    handle_doc(file, p, 'DOCS')
+    for file in ZIP_ARCH:
+        handle_arch(file, folder, 'ARCH')
 
-for file in ZIP_ARCH:
-    handle_arch(file, p, 'ARCH')
+    for file in OTHER:
+        handle_other(file, folder, 'OTHER')
 
-for file in OTHER:
-    handle_other(file, p, 'OTHER')
+    for file in FOLDERS:
+        folder_del(file)
 
-for file in FOLDERS:
-    folder_del(file)
+
+def executing_script():
+    scan_path = sys.argv[1]
+    print(f'Start in folder {scan_path}')
+
+    sort_folder = Path(scan_path)
+    main(sort_folder.resolve())
+    print(sort_folder.resolve())
