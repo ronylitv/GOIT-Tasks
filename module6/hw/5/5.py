@@ -45,8 +45,28 @@
 def get_cats_info(path):
     result = []
     with open(path, "r") as f:
-        for string in f:
+        for string in f.readlines():
             id, name, age = string.split(",")
             result.append({"id": id, "name": name, "age": age.strip()})
     return result
+
+
+# def get_cats_info(path):
+#     id = ''
+#     name = ''
+#     age = ''
+#     result = [{'id': id}, {'name': name}, {'age': age}]
+#     with open(path, 'r') as fh:
+#         strings = fh.readline()
+#         strings1 = strings.split(",")
+#         for i in strings1:
+#             if len(i) == 24:
+#                 id += i
+#             if len(i) > 2 and len(i) < 8:
+#                 name += i
+#             if len(i) > 1 and len(i) < 3:
+#                 i = i.replace("\n", "")
+#                 age += i
+#     return result
+
 print(get_cats_info('cats.txt'))

@@ -1,21 +1,11 @@
-main_list = []
-
-
 def decode(data):
     if len(data) == 0:
         return []
     else:
-        f = [data[0] * data[1]]
-        r = [i for i in f[0]]
-        f = r + decode(data[2:])
-
-        return f
+        return [i for i in data[0] * data[1]] + decode(data[2:])
 
 
-
-print(decode(["X", 3, "Z", 2, "X", 6, "Y", 3, "Z", 2]))
-
-
+print(decode(["X", 3, "Z", 2, "X", 1, "Y", 3, "Z", 2]))
 
 
 # def decode(data):

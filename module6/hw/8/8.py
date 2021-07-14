@@ -8,6 +8,23 @@ def save_applicant_data(source, output):
             sent += ','.join(new_list) + '\n'
         f.write(sent)
 
+def save_applicant_data(source, output):
+
+    with open(output, 'w') as f:
+        write_to_file = ''
+        for i in source:
+            data = []
+            for value in i.values():
+                data.append(str(value))
+            write_to_file += ','.join(data) + '\n'
+        f.write(write_to_file)
+
+        # for j in data:
+        #     f.write(data[0:5] + "\n")
+        #     if len(f) == 1:
+        #         f.write(data[5:10] + "\n")
+        #     if len(f) == 2:
+        #         f.write(data[10:15] + "\n")
 
 source = [
     {
