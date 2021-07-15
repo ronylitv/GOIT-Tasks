@@ -9,13 +9,12 @@ def check_password(file, log_and_pass):
     with open(file, 'r') as f:
         lines = f.readlines()
         for i in lines:
-            i.rstrip()
-            if log_and_pass in i:
+            if i.find(log_and_pass) != -1:
                 print('Success')
                 break
             else:
-                continue
+                print('Unsuccessful')
 
 
-check_password('text.txt', 'a b')
+check_password('text.txt', 'd l')
 
