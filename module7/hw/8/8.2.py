@@ -40,4 +40,4 @@ def token_parser(s):
 
 s = '2+ 34 - 5 * 3'
 s1 = '(2+ 3) *4 - 5 * 3'
-print(token_parser(s))
+print(token_parser(s1))

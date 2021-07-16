@@ -52,7 +52,19 @@
 # print(get_password())
 
 
+def all_sub_lists(data):
+    worked_data = data.copy()
+    main_list = [[]]
+    for i in worked_data:
+        main_list.append([i])
+    for i in range(len(worked_data)):
+        main_list.append(worked_data[:2])
+        worked_data = worked_data[1:]
+        if len(worked_data) == 1:
+            break
+    return print(main_list + [data])
 
+print(all_sub_lists(7,8,4, 6,5,9, 1, 3]))
 
 
 

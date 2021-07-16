@@ -1,0 +1,2 @@
+{'Friday': ['Mike', 'Natalya'], 'Thursday': ['Olesya', 'Danylo'], 'Wednesday': ['Nikita'], 'Monday': ['Orest', 'Roman', 'Bohdan']})
+{'5': ['Mike', 'Natalya'], '4': ['Olesya', 'Danylo'], '3': ['Nikita'], '0': ['Orest'], '1': ['Roman', 'Bohdan']})
