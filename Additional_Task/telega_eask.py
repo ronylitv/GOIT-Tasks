@@ -23,3 +23,21 @@
 #         iterator = 0
 #         cent_sym = 0
 #         continue
+
+
+def alternate_pos_neg(input_list):
+    return all(input_list[i] * input_list[i + 1] < 0 for i in range(len(input_list)-1))
+
+
+def all_sub_lists(data):
+    lists = [[]]
+    for i in range(len(data) + 1):
+        for j in range(i):
+            lists.append(data[j: i])
+    lists.sort(key=len)
+    return lists
+
+print(all_sub_lists([4,1,2,34,5]))
+
+
+print(alternate_pos_neg([-1, 2, -1, 5]))

@@ -41,6 +41,8 @@ def congratulate(users: list):
         names_to_congratulate = ', '.join(el[1])
         print(f'{days_of_week[el[0]]}: {names_to_congratulate}')
 
+# sorted_curr_birthday_employee = sorted(birthday_current_week.items(), key=lambda t: t[0])
+# sorted_next_birthday_employee = sorted(birthday_next_week.items(), key=lambda t: t[0])
 
 congratulate(user_list)
 

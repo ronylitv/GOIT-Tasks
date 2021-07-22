@@ -46,18 +46,15 @@ def congratulate(users: list):
             if birthday_number_of_week == current_number_of_week + 1:
                 birthday_next_week[val.weekday()].append(ind)
 
-    sorted_curr_birthday_employee = sorted(birthday_current_week.items(), key=lambda t: t[0])
-    sorted_next_birthday_employee = sorted(birthday_next_week.items(), key=lambda t: t[0])
-
     print('This week we will congratulate!:\n')
 
-    for el in sorted_curr_birthday_employee:
+    for el in sorted(birthday_current_week.items(), key=lambda t: t[0]):
         names_to_congratulate = ', '.join(el[1])
         print(f'{days_of_week[el[0]]}: {names_to_congratulate}')
 
     print('\nNext week we will congratulate!:\n')
 
-    for el in sorted_next_birthday_employee:
+    for el in sorted(birthday_next_week.items(), key=lambda t: t[0]):
         names_to_congratulate = ', '.join(el[1])
         print(f'{days_of_week[el[0]]}: {names_to_congratulate}')
 

@@ -52,19 +52,39 @@
 # print(get_password())
 
 
-def all_sub_lists(data):
-    worked_data = data.copy()
-    main_list = [[]]
-    for i in worked_data:
-        main_list.append([i])
-    for i in range(len(worked_data)):
-        main_list.append(worked_data[:2])
-        worked_data = worked_data[1:]
-        if len(worked_data) == 1:
-            break
-    return print(main_list + [data])
+# def all_sub_lists(data):
+#     worked_data = data.copy()
+#     main_list = [[]]
+#     for i in worked_data:
+#         main_list.append([i])
+#     for i in range(len(worked_data)):
+#         main_list.append(worked_data[:2])
+#         worked_data = worked_data[1:]
+#         if len(worked_data) == 1:
+#             break
+#     return print(main_list + [data])
+#
+# print(all_sub_lists(7,8,4, 6,5,9, 1, 3]))
 
-print(all_sub_lists(7,8,4, 6,5,9, 1, 3]))
+def bubbleSort(arr):
+    n = len(arr)
+    # Traverse through all array elements
+    for i in range(n):
+
+        # Last i elements are already in place
+        for j in range(0, n - i - 1):
+
+            # traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+p = bubbleSort([2, 0, 3, 1])
+print(p)
+
+
 
 
 
