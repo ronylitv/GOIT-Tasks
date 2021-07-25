@@ -20,8 +20,8 @@ def flatten(data):
     else:
         return [data[0]] + flatten(data[1:])
 
-l = [1, 2, [3, 4, [5, 6]], 7]
+l = [1, 2, [3, 4]]
 k = [1, [2, 3], [4, [5, [6, 7]]], [[[8], 9], [10]]]
 p = []
-print(flatten(p))
+print(flatten(l))
 

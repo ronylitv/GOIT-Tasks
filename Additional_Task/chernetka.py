@@ -85,7 +85,28 @@ p = bubbleSort([2, 0, 3, 1])
 print(p)
 
 
+def format_phone_number(func):
+    def inner(new_phone):
+        new_phone = func(new_phone)
+        if len(new_phone) < 12:
+            new_phone = "+38" + new_phone
+        if len(new_phone) == 12:
+            new_phone = "+" + new_phone
+        return new_phone
+    return inner
 
+
+@format_phone_number
+def sanitize_phone_number(phone):
+    new_phone = (
+        phone.strip()
+            .removeprefix("+")
+            .replace("(", "")
+            .replace(")", "")
+            .replace("-", "")
+            .replace(" ", "")
+    )
+    return new_phone
 
 
 

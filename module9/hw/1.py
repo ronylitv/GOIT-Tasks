@@ -18,12 +18,9 @@ def get_description(key):
 
 print(get_description(5), get_grade('A'))
 
+
 def get_student_grade(option):
     if option == 'grade':
         return get_grade
     elif option == 'description':
         return get_description
-
-
-
-

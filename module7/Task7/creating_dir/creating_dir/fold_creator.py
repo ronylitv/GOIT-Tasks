@@ -35,6 +35,7 @@ def folder_creator(folder: Path):
         new_dir = lol / el
         new_dir.mkdir()
 
+
 def func():
     folder_creator('C:/Users\Lenovo\PycharmProjects\lesson')
 
