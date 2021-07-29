@@ -59,11 +59,3 @@ def show_all(file):
         for item in f.readlines():
             print(item.strip())
 
-
-def cli_quit():
-    pass
-
-
-def main():
-    while True:
-        

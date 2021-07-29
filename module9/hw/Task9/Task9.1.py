@@ -21,6 +21,7 @@ def input_error(func):
                 print('Contact does not exist!')
             else:
                 print(func(args[0]))
+
     return inner
 
 
