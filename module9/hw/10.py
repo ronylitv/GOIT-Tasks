@@ -1,5 +1,5 @@
 def get_favorites(contacts: list):
-    return [i for i in filter(lambda x: x['favorite'] == True, contacts)]
+    return dict(filter(lambda x: x['favorite'] == True, contacts))
 
 
 print(get_favorites([   {

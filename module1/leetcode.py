@@ -1,22 +1,46 @@
-def done_or_not(board: list):
-    for i in board:
-        p = sorted(i)
-        if p != [l for l in range(1, 10)]:
-            return 'Try again!'
+from tkinter import Tk, Button
 
-    pos = 0
-    while True:
-        try:
-            board[pos][:pos+3]
-    return 'Finished!'
 
-print(done_or_not([
-    [1, 3, 2, 5, 7, 9, 4, 6, 8],
-    [4, 9, 8, 2, 6, 1, 3, 7, 5],
-    [7, 5, 6, 3, 8, 4, 2, 1, 9],
-    [6, 4, 3, 1, 5, 8, 7, 9, 2],
-    [5, 2, 1, 7, 9, 3, 8, 4, 6],
-    [9, 8, 7, 4, 2, 6, 5, 3, 1],
-    [2, 1, 4, 9, 3, 5, 6, 8, 7],
-    [3, 6, 5, 8, 1, 7, 9, 2, 4],
-    [8, 7, 9, 6, 4, 2, 1, 5, 3]]))
+class Verification:
+
+    def __init__(self, login, password):
+        self.login = login
+        self.password = password
+        self.__lenPassword()
+
+    def __lenPassword(self):
+        if len(self.password) < 8:
+            raise ValueError('Weak password')
+
+    def save(self):
+        with open('users.txt', 'a') as r:
+            r.write(f'{self.login, self.password}' + '\n')
+
+class My_App(Tk):
+
+    def __init__(self):
+        Tk.__init__(self)
+        self.geometry('400x400')
+        self.setUI()
+
+    def setUI(self):
+        Button(self, text='OK').pack()
+
+class V2(Verification):
+
+    def __init__(self, login, password, age):
+        super().__init__(login, password)
+        self.__save()
+        self.age = age
+
+    def __save(self):
+        with open('users.txt', 'r') as r:
+            for i in r:
+                if f'{self.login, self.password}' + '\n' == i:
+                    raise ValueError('It exists!')
+        super().save()
+
+    def show(self):
+        return self.password, self.login
+
+x = V2('bob', '11111111111', 23)
