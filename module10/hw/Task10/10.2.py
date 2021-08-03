@@ -12,9 +12,10 @@ class Field:
                     print('Incorrect number')
                     return []
             else:
-                res = re.search(r'\w+@\w+.\w{3}', item)
+                res = re.search(r'\w+@\w+\.\w+', item)
                 if not res:
                     print('It`s not number or email. Please try again!')
+                    number.remove(item)
         return number
 
     @staticmethod

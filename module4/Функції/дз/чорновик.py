@@ -6,6 +6,12 @@
 #
 #
 #     return full_name
+
+def get_fullname(first_name, last_name, middle_name=''):
+    return first_name + ' ' + last_name if not middle_name else first_name + ' ' + middle_name + ' ' + last_name
+
+print(get_fullname('Rostyslav', 'Lytvynets', 'Romanovych'))
+
 #
 #
 # print(get_fullname('rostyslav', 'lytvynets', 'romanovych'))
