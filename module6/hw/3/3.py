@@ -10,25 +10,23 @@
 
 
 
-def read_employees_from_file(path):
-
-    list1 = []
-    fh = open(path, 'r')
-    list = fh.readlines()
-    for i in list:
-            i = i.replace("\n", "")
-            list1.append(i)
-    fh.close()
-
-    return list1
-
-print(read_employees_from_file('salary1.txt'))
-# aaa = [{'1': 2, '2': 3, '3': 4}, {'1a': 2, '2a': 3, '3a': 4}, {'1b': 2, '2b': 3, '3b': 4}]
-# b = []
-# key = '1'
+# def read_employees_from_file(path):
 #
-# for i in aaa:
-#     for j in i:
-#         if key == j:
-#             b.append(j)
-# print(b)
+#     list1 = []
+#     fh = open(path, 'r')
+#     list = fh.readlines()
+#     for i in list:
+#             list1.append(i.strip())
+#     fh.close()
+#
+#     return list1
+def read_employees_from_file(path):
+    f_employees = open(path, 'r')
+    l_employees = []
+    for i in f_employees.readlines():
+        i = i.strip()
+        l_employees.append(j)
+    f_employees.close()
+    return l_employees
+print(read_employees_from_file('salary1.txt'))
+

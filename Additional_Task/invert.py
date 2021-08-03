@@ -11,13 +11,13 @@
 #
 # print(invert({"z": "q", "w": "f"}))
 wait_for_number = True
-while True:
-    while wait_for_number:
-        num = int(input('Enter the number: '))
-        wait_for_number = False
-    while not wait_for_number:
-        op = input('Enter the operator: ')
-        wait_for_number = True
+# while True:
+#     while wait_for_number:
+#         num = int(input('Enter the number: '))
+#         wait_for_number = False
+#     while not wait_for_number:
+#         op = input('Enter the operator: ')
+#         wait_for_number = True
 
 
 

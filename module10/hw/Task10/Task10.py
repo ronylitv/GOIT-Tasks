@@ -40,8 +40,8 @@ class Record:
     def del_number(self, number):
         self.phone.del_number(number)
 
-    def change_number(self, old_number, new_number):
-        self.phone.change_number(old_number, new_number)
+    # def change_number(self, old_number, new_number):
+    #     self.phone.change_number(old_number, new_number)
 
     def __str__(self):
         return f'{self.name},{self.phone}'
