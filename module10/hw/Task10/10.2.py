@@ -74,7 +74,7 @@ def main():
     while True:
         command = input('Command: ').lower()
         sep_val = command.split(' ')
-        if sep_val[0] == 'add' and len(sep_val) > 2 :
+        if sep_val[0] == 'add' and len(sep_val) > 2:
             main_address_book.add_record(Record(sep_val[1].title(), sep_val[2:]))
         elif sep_val[0] == 'change' and len(sep_val) > 2:
             main_address_book.change_phone(Record(sep_val[1].title(), sep_val[2:]))
