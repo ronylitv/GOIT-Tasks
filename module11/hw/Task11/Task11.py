@@ -157,17 +157,17 @@ def main():
         if sep_val[0] == 'add' and len(sep_val) > 2:
             main_address_book.add_record(
                 Record(sep_val[1].title(), sep_val[2], sep_val[3] if len(sep_val) == 4 else None))
-            error_counter = 0
+
         elif sep_val[0] == 'change' and len(sep_val) > 2:
             main_address_book.change_phone(
                 Record(sep_val[1].title(), sep_val[2], sep_val[3] if len(sep_val) == 4 else None))
-            error_counter = 0
+
         elif sep_val[0] == 'phone':
             print(main_address_book.find_phone(sep_val[1].title()))
-            error_counter = 0
+
         elif sep_val[0] == 'show' and sep_val[1] == 'all':
             print(main_address_book)
-            error_counter = 0
+
         elif sep_val[0] == 'iter' and len(sep_val) > 1:
             iter_for_book = iter(main_address_book)
             if len(main_address_book) < int(sep_val[1]):
@@ -190,7 +190,7 @@ def main():
         else:
             error_counter += 1
             print('Incorrect! Try again')
-        if error_counter == 2:
+        if error_counter == 3:
             print('Maybe you have some problems?\nHow can I help you?\nThe list of available commands:\n'
                   '"add [name] [phone] [birthday](optional)" - adding the user to the Addressbook;\n'
                   '"change [name] [phone] [birthday](optional)" - change the existing contact;\n'
