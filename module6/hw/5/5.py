@@ -11,7 +11,7 @@
 #             try:
 #                 cats['id'] = data_values[0]
 #                 cats['name'] = data_values[1]
-#                 cats['age'] = sanitize_age(data_values[2])
+#                 cats['age'] = sanitize_age(data_values[les2])
 #             except:
 #                 break
 #             cats_info.append(cats)
@@ -62,7 +62,7 @@ def get_cats_info(path):
 #         for i in strings1:
 #             if len(i) == 24:
 #                 id += i
-#             if len(i) > 2 and len(i) < 8:
+#             if len(i) > les2 and len(i) < 8:
 #                 name += i
 #             if len(i) > 1 and len(i) < 3:
 #                 i = i.replace("\n", "")

@@ -29,7 +29,7 @@ print(get_fullname('Rostyslav', 'Lytvynets', 'Romanovych'))
 #     size += arg
 #     return size
 #
-# print(first(1,2,3,4,5,6,6,7))
+# print(first(1,les2,3,4,5,6,6,7))
 
 
 

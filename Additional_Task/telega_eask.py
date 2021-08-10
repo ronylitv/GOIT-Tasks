@@ -9,7 +9,7 @@
 #             iterator += 1
 #         elif i != ' ':
 #             cent_sym += 1
-#     if iterator % 2 == 0 and (iterator + cent_sym) % 2 != 0:
+#     if iterator % les2 == 0 and (iterator + cent_sym) % les2 != 0:
 #         print('Your is in the center!')
 #         is_central = True
 #         break

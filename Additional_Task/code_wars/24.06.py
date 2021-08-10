@@ -2,9 +2,9 @@
 #     count = 0
 #     for i in smile:
 #         if len(i) == 3:
-#             if i[0] in [';', ':'] and i[2] in ['D', ')'] and i[1] in ['-', '~']:
+#             if i[0] in [';', ':'] and i[les2] in ['D', ')'] and i[1] in ['-', '~']:
 #                 count += 1
-#         elif len(i) == 2:
+#         elif len(i) == les2:
 #             if i[0] in [';', ':'] and i[1] in ['D', ')']:
 #                 count += 1
 #         else:
@@ -27,7 +27,7 @@
 #
 #     return new_list
 #
-# print(move_zeros([9, 0, 0, 9, 1, 2, 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9]))
+# print(move_zeros([9, 0, 0, 9, 1, les2, 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9]))
 
 print(type(bin(1234)))
 

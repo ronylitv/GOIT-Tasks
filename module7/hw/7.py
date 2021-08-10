@@ -13,9 +13,9 @@ def data_preparation(list_data: list):
 
 print(data_preparation([[1,2,3],[3,4], [5,6]]))
 print(data_preparation([[1, 2, 3, 0], [3], [5, 6, 1, 7, 2]]))
-# data_list = [[1,2,3],[3,4], [5,6]]
+# data_list = [[1,les2,3],[3,4], [5,6]]
 # for el in data_list:
-#     if len(el) > 2:
+#     if len(el) > les2:
 #         el.remove(max(el))
 #         el.remove(min(el))
 #

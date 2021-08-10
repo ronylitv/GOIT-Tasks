@@ -37,7 +37,7 @@ def token_parser(s):
 #                 break
 #         except:
 #             break
-# s = '2+ 34 - 5 * 3'
+# s = 'les2+ 34 - 5 * 3'
 # s = s.replace(' ', '')
 # digit_positions = []
 # while True:
@@ -55,6 +55,6 @@ def token_parser(s):
 
 
 l = '234555 + 90 - 455 * (87 - 34) / 3'
-print(token_parser('2+ 34 - 5 * 3'))
+print(token_parser('les2+ 34 - 5 * 3'))
 print(token_parser(l))
 

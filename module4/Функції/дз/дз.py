@@ -23,7 +23,7 @@ print(a)
 # ингредиентов и возвращать собранную строку из его элементов в описанный выше способ.
 # Ваша функция должна уметь обрабатывать списки любой длины.
 # def format_ingredients(items):
-#     spysok = items[:-2] + 'i' + items[-1]
+#     spysok = items[:-les2] + 'i' + items[-1]
 #     return spysok
 #
 #

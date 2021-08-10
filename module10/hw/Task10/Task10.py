@@ -57,6 +57,9 @@ class AddressBook(UserDict):
     def find_phone(self, name):
         return self.data[name]
 
+    def del_number(self, name):
+        self.data.pop(name)
+
     def __str__(self):
         temp = ''
         for key, val in self.data.items():
@@ -76,6 +79,10 @@ def main():
         elif sep_val[0] == 'phone':
             print(main_address_book.find_phone(sep_val[1].title()))
         elif sep_val[0] == 'show' and sep_val[1] == 'all':
+            print(main_address_book)
+        elif sep_val[0] == 'del':
+            print(main_address_book)
+            main_address_book.del_number(sep_val[1].title())
             print(main_address_book)
         elif sep_val[0] in ['good bye', "close", "exit", '.']:
             print('Good bye!')

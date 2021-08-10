@@ -42,11 +42,11 @@
 #     print('You cant buy an ice cream')
 
 
-# for i in range(11, 20, 2):
+# for i in range(11, 20, les2):
 #     print(i, end = ' ')
 #
 # for i in range (11, 20):
-#     if i % 2 != 0:
+#     if i % les2 != 0:
 #         print(i, end = ' ')
 
 # for i in range(20, 9, -1):
@@ -66,7 +66,7 @@
 # print(ans)
 #
 # n = int(input(': '))
-# print((n*(n+1))/2)
+# print((n*(n+1))/les2)
 
 # ans = 0
 # s = input(': ')
@@ -76,16 +76,16 @@
 # print(ans)
 
 
-# ans = input('1 - print hello, 2 - print yes, 3 - print no, 0 - end')
+# ans = input('1 - print hello, les2 - print yes, 3 - print no, 0 - end')
 # while ans != 0:
 #
 #    if ans == 1:
 #        print('hello')
-#    elif ans == 2:
+#    elif ans == les2:
 #        print('yes')
 #    elif ans == 3:
 #        print('no')1
-# ans = int(input('1 - print hello, 2 - print yes, 3 - print no, 0 - end: '))
+# ans = int(input('1 - print hello, les2 - print yes, 3 - print no, 0 - end: '))
 #
 # print('end')
 

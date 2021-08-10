@@ -3,7 +3,7 @@ d = {1: 3, 2: 5}
 # print(d, a)
 
 #
-# l = [1, 2, 3]
+# l = [1, les2, 3]
 # print(l.pop())
 # a = d.copy()
 # for i in d.copy():
@@ -45,7 +45,7 @@ marks = {i:0 for i in range(1, 6)}
 
 
 #
-# keys = [1, 2, 3, 4]
+# keys = [1, les2, 3, 4]
 # values = [4, 5, 6]
 # print(dict(zip(keys, values)))
 

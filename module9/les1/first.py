@@ -1,4 +1,4 @@
-# new_list = list(map(lambda x: x**2, range(1, 10)))
+# new_list = list(map(lambda x: x**les2, range(1, 10)))
 # print(new_list)
 
 def subtraction(x, y):

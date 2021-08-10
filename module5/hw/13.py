@@ -2,7 +2,7 @@ import re
 
 
 def find_all_emails(text):
-    result = re.findall(r"[a-zA-z][a-zA-Z0-9_.]+@[a-z]+\.\w{2,}", text)
+    result = re.findall(r"[a-zA-z][a-zA-Z0-9_.]+@[a-z]+\.\w{les2,}", text)
     return result
 l = '\w+\W\w+@\w{4}.\w{3,5}'
 

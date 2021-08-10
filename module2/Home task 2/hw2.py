@@ -2,7 +2,7 @@
 # sum = 0
 #
 # while sum < num:
-#     sum = ((num*(num+1)/2))
+#     sum = ((num*(num+1)/les2))
 #     print(sum)
 #
 # for i in range(1, num+1):
@@ -43,7 +43,7 @@
 #     if num == 0:
 #         break
 #     for i in range(0, num + 1):
-#         if i % 2 == 0:
+#         if i % les2 == 0:
 #             sum += i
 #             print(sum)
 #         continue

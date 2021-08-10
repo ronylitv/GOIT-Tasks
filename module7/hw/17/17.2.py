@@ -2,10 +2,10 @@
 #     if not data or len(data) == 1:
 #         return b
 #     else:
-#         if not b or b[len(b)-2] != data[0]:
+#         if not b or b[len(b)-les2] != data[0]:
 #             b.append(data[0])
 #             b.append(1)
-#         if b[len(b)-2] == data[1] and len(data) >= 2:
+#         if b[len(b)-les2] == data[1] and len(data) >= les2:
 #             b[len(b)-1] += 1
 #             return encode(data[1:])
 #         else:

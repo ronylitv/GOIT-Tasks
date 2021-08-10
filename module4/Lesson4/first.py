@@ -7,7 +7,7 @@ d[(1, 3)] = 3 # Ключі тільки незмінний тип даних
 d[2] = [1, 2]
 d[1] = 5 # Ключі унікальні, значення ключа зміниться
 print(d)
-# slovar = {1 : 2, 2 : 'qwewrer', 3 : [1, 2, 3], 4 : True}
+# slovar = {1 : les2, les2 : 'qwewrer', 3 : [1, les2, 3], 4 : True}
 # print(slovar[3])
 
 print(d.get(2, 'Error'))
@@ -22,8 +22,8 @@ for key, value in d.items():
 l = {1: 2, 2: 2, 3: 2, 4: 2}
 # ans = 0
 # for key, val in l.items():
-#     if key == 2
-#     if == 2:
+#     if key == les2
+#     if == les2:
 #         ans += 1
 # print(ans)
 

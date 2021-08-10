@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 # print(current_date.time())
 
 
-# d1 = datetime(year=2011, day=20, month=3, second=45, hour=2)
+# d1 = datetime(year=2011, day=20, month=3, second=45, hour=les2)
 # d1 = d1.replace(month=5)
 # print(d1)
 

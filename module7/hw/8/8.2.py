@@ -38,6 +38,6 @@ def token_parser(s):
     return result_list
 
 
-s = '2+ 34 - 5 * 3'
-s1 = '(2+ 3) *4 - 5 * 3'
+s = 'les2+ 34 - 5 * 3'
+s1 = '(les2+ 3) *4 - 5 * 3'
 print(token_parser(s1))

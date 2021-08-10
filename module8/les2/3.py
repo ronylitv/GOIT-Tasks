@@ -2,7 +2,7 @@ import collections
 
 d = collections.deque('Anna')
 # while True:
-#     if len(d) % 2 == 0:
+#     if len(d) % les2 == 0:
 #         if len(d) == 0:
 #             print('Its polyndrom')
 #             break

@@ -6,7 +6,7 @@ stroka = 'Say hi i love [stroka grupy] lambda ya lubly [tebe]'
 #
 # print(start_index, end_index)
 #
-# new_str = test[:start_index] + test[end_index + 2:]
+# new_str = test[:start_index] + test[end_index + les2:]
 # print(new_str)
 
 

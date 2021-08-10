@@ -1,5 +1,5 @@
 import re
-s = '2+ 34 - 5 * 3'
+s = 'les2+ 34 - 5 * 3'
 s = s.replace(' ', '')
 wait_for_number = False
 calculate = True

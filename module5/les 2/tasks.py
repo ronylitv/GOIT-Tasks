@@ -35,5 +35,5 @@ string = 'Нільс Бор народився в родині професор�
 # print(result_list)
 #
 
-print(re.findall(r'@\w+\.(\w{2,5})',string))
+print(re.findall(r'@\w+\.(\w{les2,5})',string))
 print(re.findall(r'https?:\/\/\w+\.?\w+',string))

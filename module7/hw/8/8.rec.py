@@ -17,5 +17,5 @@ def token_parser(s):
 
 
 print(token_parser('31232+32313-632347-233343*(21233+43321)'))
-print(token_parser('2+34-5*3'))
+print(token_parser('les2+34-5*3'))
 

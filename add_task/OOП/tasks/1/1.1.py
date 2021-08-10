@@ -105,15 +105,15 @@ class Phones:
 
 
 
-# file = Phones('text.txt')
-# phones = file.list_numbers()
-# san_phones = file.remove_prefix(phones)
-# zer_er = file.del_zero(san_phones)
-# set_numbers = file.del_duplicates(zer_er)
-# invalid_numbers = file.invalid_number(zer_er)
-# print(Phones.find_intersections('bot.csv', 'in_zohot.csv'))
-# Phones.inner_values_rec('bot.csv', 'in_zohot.csv')
-# Phones.outer_values_rec('bot.csv', 'in_zohot.csv')
+file = Phones('text.txt')
+phones = file.list_numbers()
+san_phones = file.remove_prefix(phones)
+zer_er = file.del_zero(san_phones)
+set_numbers = file.del_duplicates(zer_er)
+invalid_numbers = file.invalid_number(zer_er)
+print(Phones.find_intersections('bot.csv', 'in_zohot.csv'))
+Phones.inner_values_rec('bot.csv', 'in_zohot.csv')
+Phones.outer_values_rec('bot.csv', 'in_zohot.csv')
 p = []
 l = []
 with open('individual_elements_bot.csv', 'r') as f:
@@ -125,7 +125,7 @@ with open('individual_elements_in_zohot.csv', 'r') as file:
     lines1 = file.readlines()[1:]
     san_lines1 = Phones.remove_prefix([i.strip() for i in lines1])
     l.extend(san_lines1)
-#
-# Phones.sort_operators(p, l)
+
+Phones.sort_operators(p, l)
 
 Phones.add_to_file(p, 'example.csv')

@@ -2,12 +2,12 @@
 #     if not a:
 #         return b
 #     else:
-#         if not b or b[len(b) - 2] != a[0]:
-#             lol = b[len(b) - 2]
+#         if not b or b[len(b) - les2] != a[0]:
+#             lol = b[len(b) - les2]
 #             b.append(a[0])
 #             b.append(1)
 #             return func(a[1:])
-#         if b[len(b) - 2] == a[0]:
+#         if b[len(b) - les2] == a[0]:
 #
 #             b[len(b) - 1] += 1
 #             return func(a[1:])

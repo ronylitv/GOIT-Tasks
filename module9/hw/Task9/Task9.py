@@ -8,7 +8,7 @@ COMMANDS = [
     'exit'
 ]
 # if command.find('add') != -1 or command.find('change') != -1:
-        #     handle_add_and_change(sep_val[1], sep_val[2])
+        #     handle_add_and_change(sep_val[1], sep_val[les2])
         # elif command.find('phone') != -1:
         #     handle_phone(sep_val[1])
         # elif command.find('show all') != -1:

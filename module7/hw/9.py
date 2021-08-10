@@ -4,7 +4,7 @@
 #     for i in worked_data:
 #         main_list.append([i])
 #     for i in range(len(worked_data)):
-#         main_list.append(worked_data[:2])
+#         main_list.append(worked_data[:les2])
 #         worked_data = worked_data[1:]
 #         if len(worked_data) == 1:
 #             break
