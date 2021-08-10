@@ -2,12 +2,10 @@ from collections import UserDict
 import re
 from datetime import datetime
 
-
-class Field:
-    pass
+error_counter = 0
 
 
-class Phone(Field):
+class Phone:
     def __init__(self, phone):
         self.__phone = None
         self.phone = phone
@@ -19,24 +17,20 @@ class Phone(Field):
     @phone.setter
     def phone(self, phone: str):
         flag = False
-        if phone.startswith('+380') or phone.startswith('380'):
-            res = re.search(r'(\+?380(67|68|96|97|98|50|66|95|99|63|73|93|89|94)\d{7})', phone)
-            if res:
-                flag = True
-                self.__phone = res.group()
-        elif phone.startswith('0'):
-            res = re.search(r'(0(67|68|96|97|98|50|66|95|99|63|73|93|89|94)\d{7})', phone)
-            if res:
-                flag = True
-                self.__phone = res.group()
+        res = re.search(r'(\+?(38)?0(67|68|96|97|98|50|66|95|99|63|73|93|89|94)\d{7})', phone)
+        if res:
+            flag = True
+            self.__phone = res.group()
         if not flag:
+            global error_counter
+            error_counter += 1
             print('Incorrect phone!')
 
     def __str__(self):
         return f'{self.__phone}'
 
 
-class Name(Field):
+class Name:
     def __init__(self, name):
         self.__name = None
         self.name = name
@@ -50,13 +44,15 @@ class Name(Field):
         if name.isalpha():
             self.__name = name
         else:
+            global error_counter
+            error_counter += 1
             print('Incorrect name!')
 
     def __str__(self):
         return f'{self.__name}'
 
 
-class Birthday(Field):
+class Birthday:
     def __init__(self, birthday):
         self.__birthday = None
         self.birthday = birthday
@@ -73,11 +69,12 @@ class Birthday(Field):
             if int(date[0]) <= 31 and int(date[1]) <= 12:
                 res = re.search(r'\d{1,2}\.\d{1,2}\.\d{4}', birthday)
                 if res:
-                    birthday_formatted = datetime.strptime(res.group(), '%d.%m.%Y')
                     flag = True
-                    self.__birthday = birthday_formatted
+                    self.__birthday = datetime.strptime(res.group(), '%d.%m.%Y')
         if not flag:
-            print('Incorrect date or format!\nTry to enter like the example: 14.06.2002')
+            global error_counter
+            error_counter += 1
+            print('Incorrect date or format!\nTry to enter like the example: DD.MM.YYYY')
 
     def __str__(self):
         if self.__birthday:
@@ -110,19 +107,27 @@ class Record:
             return -(date_now - birth_date).days
 
     def __str__(self):
-        if self.birthday != 'None' and self.birthday:
-            return f'{self.name},{self.phone},{Record.days_to_birthday(self)} days left to the birthday'
+        if self.birthday:
+            return f'{self.name},{self.phone},{self.birthday}'
+        if self.phone.__str__() == 'None':
+            return None
         return f'{self.name},{self.phone}'
 
 
 class AddressBook(UserDict):
     def add_record(self, rec):
-        self.data[rec.name.__str__()] = rec.__str__()
-        if 'None' in self.data.keys():
-            self.data.pop('None')
+        if rec.phone.__str__() != 'None':
+            self.data[rec.name.__str__()] = rec.__str__()
+            if 'None' in self.data.keys():
+                self.data.pop('None')
 
     def change_phone(self, rec):
-        self.data[rec.name.__str__()] = rec.__str__()
+        if rec.name.__str__() in self.data.keys() and len(self.data[rec.name.__str__()].split(',')) == 3 and \
+                len(rec.__str__().split(',')) == 2:
+            sep_values = self.data[rec.name.__str__()].split(',')
+            self.data[rec.name.__str__()] = rec.__str__() + ',' + sep_values[2]
+        else:
+            self.data[rec.name.__str__()] = rec.__str__()
 
     def find_phone(self, name):
         if name in self.data.keys():
@@ -131,8 +136,20 @@ class AddressBook(UserDict):
             return res.group()
         return 'Does not exist in database!'
 
+    def __iter__(self):
+        self.val_dict = [0] + [i for i in self.data.values()]
+        self.count_iter = 0
+        return self
+
+    def __next__(self):
+        if len(self.val_dict) - 1 != self.count_iter:
+            self.count_iter += 1
+            return self.val_dict[self.count_iter]
+        raise StopIteration
+
 
 def main():
+    global error_counter
     main_address_book = AddressBook()
     while True:
         command = input('Command: ').lower()
@@ -140,20 +157,48 @@ def main():
         if sep_val[0] == 'add' and len(sep_val) > 2:
             main_address_book.add_record(
                 Record(sep_val[1].title(), sep_val[2], sep_val[3] if len(sep_val) == 4 else None))
+            error_counter = 0
         elif sep_val[0] == 'change' and len(sep_val) > 2:
             main_address_book.change_phone(
                 Record(sep_val[1].title(), sep_val[2], sep_val[3] if len(sep_val) == 4 else None))
+            error_counter = 0
         elif sep_val[0] == 'phone':
             print(main_address_book.find_phone(sep_val[1].title()))
+            error_counter = 0
         elif sep_val[0] == 'show' and sep_val[1] == 'all':
             print(main_address_book)
+            error_counter = 0
+        elif sep_val[0] == 'iter' and len(sep_val) > 1:
+            iter_for_book = iter(main_address_book)
+            if len(main_address_book) < int(sep_val[1]):
+                print(f'Maximum possible iterations are {len(main_address_book)} instead of {int(sep_val[1])}!\n'
+                      f'Please try again!')
+                continue
+            for i in range(int(sep_val[1])):
+                print(next(iter_for_book))
         elif sep_val[0] in ['good bye', "close", "exit", '.']:
             print('Good bye!')
             break
-        elif sep_val[0] == 'hello':
-            print('How can I help you?')
+        elif sep_val[0] == 'hello' or sep_val[0] == 'help':
+            print('How can I help you?\nThe list of available commands:\n'
+                  '"add [name] [phone] [birthday](optional)" - adding the user to the Addressbook;\n'
+                  '"change [name] [phone] [birthday](optional)" - change the existing contact;\n'
+                  '"phone [name]" - find the phone of user;\n'
+                  '"show all" - show all of the contacts in the Addressbook;\n'
+                  '"iter [iterations]" - iterating the Addressbook;\n'
+                  '"good bye, close, exit, ." - exit the CLI-bot')
         else:
+            error_counter += 1
             print('Incorrect! Try again')
+        if error_counter == 2:
+            print('Maybe you have some problems?\nHow can I help you?\nThe list of available commands:\n'
+                  '"add [name] [phone] [birthday](optional)" - adding the user to the Addressbook;\n'
+                  '"change [name] [phone] [birthday](optional)" - change the existing contact;\n'
+                  '"phone [name]" - find the phone of user;\n'
+                  '"show all" - show all of the contacts in the Addressbook;\n'
+                  '"iter [iterations]" - iterating the Addressbook;\n'
+                  '"good bye, close, exit, ." - exit the CLI-bot')
+            error_counter = 0
 
 
 if __name__ == '__main__':
