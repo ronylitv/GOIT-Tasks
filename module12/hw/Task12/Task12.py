@@ -153,9 +153,6 @@ class AddressBook(UserDict):
             return self.val_dict[self.count_iter]
         raise StopIteration
 
-    def __setstate__(self, state):
-        self.__dict__ = state
-
 
 def main():
     try:
