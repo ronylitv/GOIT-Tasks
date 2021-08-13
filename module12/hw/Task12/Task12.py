@@ -1,6 +1,7 @@
 from collections import UserDict
 import re
 from datetime import datetime
+import pickle
 
 
 class Phone:
@@ -135,6 +136,12 @@ class AddressBook(UserDict):
             return res.group()
         return "Does not exist in database!"
 
+    def find_anything(self, searching_param):
+        print("Results of searching:")
+        for key, value in self.data.items():
+            if value.lower().find(searching_param.lower()) != -1:
+                print(f"{key}:{value}")
+
     def __iter__(self):
         self.val_dict = [0] + [i for i in self.data.values()]
         self.count_iter = 0
@@ -146,9 +153,16 @@ class AddressBook(UserDict):
             return self.val_dict[self.count_iter]
         raise StopIteration
 
+    def __setstate__(self, state):
+        self.__dict__ = state
+
 
 def main():
-    main_address_book = AddressBook()
+    try:
+        with open("data_test.bin", "rb") as f:
+            main_address_book = pickle.load(f)
+    except FileNotFoundError:
+        main_address_book = AddressBook()
     while True:
         command = input("Command: ").lower()
         sep_val = command.split(" ")
@@ -186,7 +200,11 @@ def main():
                 continue
             for i in range(int(sep_val[1])):
                 print(next(iter_for_book))
+        elif sep_val[0] == "find" and len(sep_val) == 2:
+            main_address_book.find_anything(searching_param=sep_val[1])
         elif sep_val[0] in ["good bye", "close", "exit", "."]:
+            with open("data_test.bin", "wb") as file:
+                pickle.dump(main_address_book, file)
             print("Good bye!")
             break
         elif sep_val[0] == "hello" or sep_val[0] == "help":
