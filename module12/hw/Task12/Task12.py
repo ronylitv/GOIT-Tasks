@@ -114,7 +114,8 @@ class Record:
 class AddressBook(UserDict):
     def add_record(self, rec):
         if rec.phone.__str__() != "None":
-            self.data[rec.name.__str__()] = rec.__str__()
+            # self.data[rec.name.__str__()] = rec.__str__()
+            self.data[rec.name] = rec
             if "None" in self.data.keys():
                 self.data.pop("None")
 
@@ -141,6 +142,10 @@ class AddressBook(UserDict):
         for key, value in self.data.items():
             if value.lower().find(searching_param.lower()) != -1:
                 print(f"{key}:{value}")
+
+    def __str__(self):
+        for key, val in self.data.items():
+            print(f'{str(key)}:{str(val)}')
 
     def __iter__(self):
         self.val_dict = [0] + [i for i in self.data.values()]
@@ -185,7 +190,7 @@ def main():
             print(main_address_book.find_phone(sep_val[1].title()))
 
         elif sep_val[0] == "show" and sep_val[1] == "all":
-            print(main_address_book)
+            main_address_book.__str__()
 
         elif sep_val[0] == "iter" and len(sep_val) > 1:
             iter_for_book = iter(main_address_book)

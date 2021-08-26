@@ -1,9 +1,6 @@
 def caching_fibonacci():
     cache_dict = {0:0}
     def fibonacci(n):
-        if n == 0:
-            return 0
-
         if n <= 1:
             return 1
         elif n-1 in cache_dict.keys() or n-2 in cache_dict.keys():
