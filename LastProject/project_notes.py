@@ -30,10 +30,10 @@ class NoteRecord:
             list_of_notes = []
         if list_of_notes:
             with open(self.filename, 'w') as file:
-                json.dump(list_of_notes + [self.record], file)
+                json.dump(list_of_notes + [self.record], file, sort_keys=True, indent=4)
         else:
             with open(self.filename, 'w') as file:
-                json.dump([self.record], file)
+                json.dump([self.record], file, sort_keys=True, indent=4)
 
     def deserialize(self):
         with open(self.filename, 'r') as file:
