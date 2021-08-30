@@ -19,6 +19,7 @@ def normalize(string) -> str:
     translated_string = re.sub(r'\W', '_', translated_string)
     return translated_string
 
+
 JPEG_IMAGES = []
 JPG_IMAGES = []
 PNG_IMAGES = []
@@ -49,11 +50,11 @@ REGIST_EXT = {
 
 }
 # sort_folder = sys.argv[1]
-p = Path('C:/Users\Lenovo\Downloads\Telegram Desktop')
+p = Path('C:/Users\Lenovo\Desktop\Folder_for_script/fold')
 
 
-def parse_folder(path):
-    p = Path(path)
+def parse_folder(p):
+    # p = Path(path)
     for file in p.iterdir():
         if file.is_dir():
             parse_folder(file)
@@ -70,8 +71,7 @@ def parse_folder(path):
     return REGIST_EXT
 
 
-parse_folder(p)
-
+print(parse_folder(p))
 
 def handle_image(file: Path, root_folder: Path, dist: str):
     ext = Path(file).suffix
